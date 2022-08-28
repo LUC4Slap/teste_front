@@ -23,7 +23,6 @@ export default {
     return {
       columns: this.$store.state.data.columns,
       rows: [],
-      results: [],
     }
   },
   async created() {
@@ -43,11 +42,16 @@ export default {
       }
       this.rows.push(parser)
     }
-    this.results.push(data)
+    this.$store.commit('data/ADD_RESULT', data)
   },
   methods: {
-    onRowDoubleClick(params) {
-      alert(JSON.stringify(params, null, 2))
+    async onRowDoubleClick(params) {
+      console.log(params)
+      await this.$store.commit('data/SET_USER', params)
+      this.$router.push({
+        name: 'infoEmpresa',
+        params: { ...params },
+      })
     },
   },
 }
@@ -55,6 +59,7 @@ export default {
 
 <style scoped>
 .main {
+  height: 100vh;
   background-image: url('../assets/background2.jpeg');
   background-repeat: no-repeat;
   background-size: cover;

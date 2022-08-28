@@ -8,14 +8,14 @@
 
 <script>
 export default {
-  name: 'header-component',
+  name: 'HeaderComponent',
 }
 </script>
 
 <style scope>
 .logo {
   width: 100%;
-  height: 150px;
+  height: 100px;
   background-color: rgb(50, 49, 50);
   display: flex;
   align-items: center;

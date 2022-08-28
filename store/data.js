@@ -42,24 +42,22 @@ export const state = () => ({
     },
   ],
   rows: [],
+  results: [],
+  teste: '',
 })
 
 export const mutations = {
-  ADD_ROWS: (state, payload) => {
-    const rows = []
-    for (const item of payload) {
-      const parser = {
-        id: item.id,
-        name: item.name,
-        username: item.username,
-        email: item.email,
-        phone: item.phone,
-        website: item.website,
-        company: item.company.name,
+  ADD_RESULT: (state, payload) => {
+    state.results.push(payload)
+  },
+  SET_USER: async (state, payload) => {
+    for (const item of state.results) {
+      if (item.id === payload.id) {
+        state.teste = item
       }
-      rows.push(parser)
     }
-    state.rows.push(rows)
+    const user = await state.results.filter((item) => item.id === payload.id)
+    console.log('usuario encontrado', user)
   },
 }
 
