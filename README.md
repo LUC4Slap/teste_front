@@ -24,3 +24,6 @@ deve ter o node na versão acima da 10, pois o projeto foi feito com Nuxtjs
 Para cada coluna tem como fazer a filtragem por hordem, e no topo da tabele tem um input para fazer busca digitando o nome do da pessoa que deseja filtrar
 
 [Imagem de exemplo da tabela](./assets/imageTable.png)
+
+# Teste Publicado na Vercel
+Este é o link do projeto publicado <https://teste-front-eta.vercel.app/>
