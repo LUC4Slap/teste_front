@@ -8,6 +8,12 @@
       :search-options="{
         enabled: true,
       }"
+      :pagination-options="{
+        enabled: true,
+        mode: 'pages',
+        perPageDropdown: [3, 7, 10],
+        dropdownAllowAll: false,
+      }"
       @on-cell-click="onRowDoubleClick"
     />
   </div>
