@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <Header />
-    <p>Empresa</p>
+    <h1>Sober a Empresa</h1>
     <pre>
       {{ user }}
     </pre>
@@ -17,12 +17,6 @@ export default {
       user: this.$store.state.data.teste,
     }
   },
-  created() {
-    // mounted() {
-    // const id = this.$route.params.id
-    // console.log(this.$route.params)
-    // console.log(this.$router.options.routes[0])
-  },
 }
 </script>
 
@@ -32,5 +26,8 @@ export default {
   background-image: url('../assets/background2.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
+}
+.main h1 {
+  color: #fff;
 }
 </style>

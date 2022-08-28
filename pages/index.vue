@@ -23,6 +23,7 @@ export default {
     return {
       columns: this.$store.state.data.columns,
       rows: [],
+      result: '',
     }
   },
   async created() {
@@ -42,16 +43,20 @@ export default {
       }
       this.rows.push(parser)
     }
+    this.result = data
     this.$store.commit('data/ADD_RESULT', data)
   },
   methods: {
     async onRowDoubleClick(params) {
-      console.log(params)
-      await this.$store.commit('data/SET_USER', params)
+      await this.setarUsuario(params)
       this.$router.push({
         name: 'infoEmpresa',
-        params: { ...params },
       })
+    },
+    async setarUsuario(params) {
+      // eslint-disable-next-line eqeqeq
+      const user = this.result.find((item) => item.id == params.row.id)
+      await this.$store.commit('data/SET_USER', user)
     },
   },
 }

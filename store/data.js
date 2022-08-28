@@ -50,14 +50,13 @@ export const mutations = {
   ADD_RESULT: (state, payload) => {
     state.results.push(payload)
   },
-  SET_USER: async (state, payload) => {
-    for (const item of state.results) {
-      if (item.id === payload.id) {
-        state.teste = item
-      }
-    }
-    const user = await state.results.filter((item) => item.id === payload.id)
-    console.log('usuario encontrado', user)
+  SET_USER: (state, payload) => {
+    // for (const item of state.results) {
+    //   if (item.id === payload.id) {
+    //     state.teste = item
+    //   }
+    // }
+    state.teste = payload
   },
 }
 
