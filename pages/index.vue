@@ -5,6 +5,9 @@
       :columns="columns"
       :rows="rows"
       theme="nocturnal"
+      :search-options="{
+        enabled: true,
+      }"
       @on-cell-click="onRowDoubleClick"
     />
   </div>
@@ -12,7 +15,6 @@
 
 <script>
 import axios from 'axios'
-// import { mapState } from 'vuex'
 import Header from '../components/Header.vue'
 export default {
   name: 'IndexPage',
@@ -56,6 +58,7 @@ export default {
     async setarUsuario(params) {
       // eslint-disable-next-line eqeqeq
       const user = this.result.find((item) => item.id == params.row.id)
+      // alert(JSON.stringify(user, null, 2))
       await this.$store.commit('data/SET_USER', user)
     },
   },
