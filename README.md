@@ -23,4 +23,4 @@ deve ter o node na versão acima da 10, pois o projeto foi feito com Nuxtjs
 ## Filtro da Tabela
 Para cada coluna tem como fazer a filtragem por hordem, e no topo da tabele tem um input para fazer busca digitando o nome do da pessoa que deseja filtrar
 
-(Imagem tabela)["./assets/imageTable.png"]
+[Imagem de exemplo da tabela](./assets/imageTable.png)
