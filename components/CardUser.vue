@@ -13,23 +13,18 @@
       </a>
     </p>
     <hr />
-    <!-- <div class="map" :style="tela">
-      <iframe
-        :src="urlMap"
-        width="600"
-        height="350"
-        frameborder="0"
-        style="border: 0"
-        allowfullscreen=""
-        aria-hidden="false"
-        tabindex="0"
-      ></iframe>
-    </div> -->
     <p style="margin-top: 5px">
       Descrição da empresa: {{ user.company.catchPhrase }}
     </p>
     <hr />
     <p>Telefone: {{ user.phone }}</p>
+    <hr />
+    <div class="company-bs">
+      <p>Categorias Empresa</p>
+      <ul v-for="(bs, index) in formatBsCompany" :key="index">
+        <li>{{ bs }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -38,12 +33,16 @@ export default {
   props: ['user'],
   data() {
     return {
-      urlMap: `https://www.google.com.br/maps/place/37%C2%B018'57.2%22S+81%C2%B008'58.6%22E/@${this.user.address.geo.lat},${this.user.address.geo.lng},17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x39e931c3f0a55e62!8m2!3d-37.3159!4d81.1496`,
-      // urlMap: 'https://goo.gl/maps/nrCbNSJ99YFNrcA48',
       tela:
         window.screen.width <= 500 ? 'display: none' : 'display: inline-block',
       urlSite: `http://${this.user.website}`,
     }
+  },
+  computed: {
+    formatBsCompany() {
+      const bs = this.user.company.bs.split(' ')
+      return bs
+    },
   },
 }
 </script>
@@ -56,10 +55,9 @@ export default {
   margin: 20px;
   width: 90%;
   transition: all 0.3s ease-out;
-  background-color: rgb(222, 214, 214);
+  background-color: rgb(16, 16, 16);
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
 }
 .card:hover {
   transform: translateY(-5px);
@@ -67,7 +65,6 @@ export default {
 }
 
 .card p {
-  /* color: #a3a5ae; */
   color: #fff;
   font-size: 16px;
   margin-bottom: 10px;
@@ -83,5 +80,10 @@ export default {
 .card p a:hover {
   color: rgb(40, 193, 114);
   transition: 0.8s ease-in-out;
+}
+
+.company-bs ul {
+  list-style: none;
+  color: #fff;
 }
 </style>
