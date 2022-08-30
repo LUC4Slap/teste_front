@@ -40,6 +40,11 @@ export const state = () => ({
       field: 'address',
       type: 'string',
     },
+    {
+      label: 'Tipo',
+      field: 'type',
+      type: 'string',
+    },
   ],
   rows: [],
   results: [],

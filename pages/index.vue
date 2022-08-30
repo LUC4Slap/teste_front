@@ -48,6 +48,7 @@ export default {
         website: item.website,
         company: item.company.name,
         address: `${item.address.street} - ${item.address.suite}`,
+        type: await this.extractType(item.company.bs),
       }
       this.rows.push(parser)
     }
@@ -66,6 +67,10 @@ export default {
       const user = this.result.find((item) => item.id == params.row.id)
       // alert(JSON.stringify(user, null, 2))
       await this.$store.commit('data/SET_USER', user)
+    },
+    extractType(type) {
+      const bs = type.split(' ')
+      return `${bs[0]} ${bs[1]} ${bs[2]}`
     },
   },
 }
